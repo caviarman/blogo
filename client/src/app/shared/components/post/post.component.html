@@ -1,0 +1,19 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(http://www.svetmayaka.ru/media/ckeditor/2016/05/16/fpzfok.jpg)'}"></div>
+    <mat-card-title>
+      {{post.title}}
+    </mat-card-title>
+    <mat-card-subtitle>{{post.createdOn | date:'dd.MM.yyyy'}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{post.image}}" style="max-width: 400px;">
+  <mat-card-content class="dashboard-card-content">
+    <div><p>{{post.preview}}</p></div>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+      <button mat-raised-button [routerLink]="['/post', post.ID]">Читать</button>
+      <button mat-icon-button color="{{favorite}}" aria-label="Example icon-button with a heart icon" (click)="OnClickFavorite(post.id)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,21 @@
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    max-width: 400px;
+   // max-height: 800px;
+  }
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+  }
+
+  .dashboard-card-content {
+    text-align: center;
+  }
+
+  .actions {
+    margin: 10;
+  }

@@ -1,0 +1,11 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Блог</h1>
+  <mat-grid-list [cols]="checkWidth()" rowHeight="650px">
+    <mat-grid-tile *ngFor="let post of posts$ | async" [colspan]="1" [rowspan]="1">
+      <app-post [post]="post"></app-post>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template>

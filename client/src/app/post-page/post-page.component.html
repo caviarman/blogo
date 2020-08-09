@@ -1,0 +1,27 @@
+<div *ngIf="post$ | async as post; else loading">
+  <mat-card style="max-width: 1000px;">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(http://www.svetmayaka.ru/media/ckeditor/2016/05/16/fpzfok.jpg)'}"></div>
+      <mat-card-title>
+        {{post.title}}
+      </mat-card-title>
+      <mat-card-subtitle>{{post.createdOn | date:'short':null:'ru'}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{post.image}}">
+    <mat-card-content>
+      <div style="font-family: Roboto, 'Helvetica Neue', sans-serif; font-size: 16px;">
+        <quill-view-html [content]="post.text"></quill-view-html>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+        <button mat-raised-button [routerLink]="['/post', post.id]">Добавить комментарий</button>
+        <button mat-raised-button routerLink="/" class="btn btn-link">На главную</button>
+        <!-- <button mat-icon-button color="{{favorite}}" aria-label="Example icon-button with a heart icon" (click)="OnClickFavorite(post.id)">
+            <mat-icon>favorite</mat-icon>
+          </button> -->
+    </mat-card-actions>
+  </mat-card>
+</div>
+<ng-template #loading>
+  <p class="text-center">Идет загрузка ...</p>
+</ng-template>
